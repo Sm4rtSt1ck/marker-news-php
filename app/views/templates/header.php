@@ -6,6 +6,7 @@
         <li><a href="/">Главная</a></li>
         <?php if (isset($_SESSION['user'])): ?>
           <li><a href="/profile">Профиль</a></li>
+          <li><a href="/settings">Настройки</a></li>
           <li><a href="/logout">Выход</a></li>
         <?php else: ?>
           <li><a href="/login">Вход</a></li>
