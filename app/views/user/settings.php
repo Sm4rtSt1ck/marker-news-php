@@ -14,7 +14,7 @@
     .hidden { display: none; }
   </style>
   <!-- Подключаем скрипт проверки длины полей -->
-  <script src="/assets/js/user/settings.js"></script>
+  <script src="/assets/js/general/max_length.js"></script>
   <script>
     // Функции редактирования и отмены редактирования для персональных данных и профиля
     function enableEditing(sectionId) {
