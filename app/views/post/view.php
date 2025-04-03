@@ -103,8 +103,9 @@
     </div>
 
     <div class="post-report">
-      <button id="report-button" data-post-id="<?php echo htmlspecialchars($post['post_id']); ?>">Пожаловаться</button>
+      <a href="/report/create?post_id=<?php echo htmlspecialchars($post['post_id']); ?>" class="report-button">Пожаловаться</a>
     </div>
+
   </div>
 
   <?php include __DIR__ . '/../templates/footer.php'; ?>
