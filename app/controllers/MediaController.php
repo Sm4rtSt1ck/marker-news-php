@@ -19,6 +19,8 @@ if (!$media) {
     die("СМИ не найдено.");
 }
 
+$isSubscribedMedia = false;
+$subscriptionId = null;
 $isOwnerOrModerator = false;
 if (isset($_SESSION['user'])) {
     $currentUserId = $_SESSION['user']['id'];
@@ -30,8 +32,21 @@ if (isset($_SESSION['user'])) {
         if ($stmt->fetch(PDO::FETCH_ASSOC)) {
             $isOwnerOrModerator = true;
         }
+        if (isset($_SESSION['user']) && $_SESSION['user']['id'] != $media['owner_id']) {
+            $stmt = $pdo->prepare("SELECT subscription_id FROM subscriptions WHERE subscriber_id = :subscriber_id AND media_id = :media_id");
+            $stmt->execute([
+                'subscriber_id' => $_SESSION['user']['id'],
+                'media_id' => $media['media_id']
+            ]);
+            $row = $stmt->fetch(PDO::FETCH_ASSOC);
+            if ($row) {
+                $isSubscribedMedia = true;
+                $subscriptionId = $row['subscription_id'];
+            }
+        }
     }
 }
+
 
 $stmt = $pdo->prepare("SELECT COUNT(*) AS cnt FROM subscriptions WHERE media_id = :media_id");
 $stmt->execute(['media_id' => $media_id]);

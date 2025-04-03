@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/media_view.css">
   <script src="/assets/js/media/view.js"></script>
+  <script src="/assets/js/subscriptions/subscribe.js"></script>
 </head>
 <body>
   <?php include __DIR__ . '/../templates/header.php'; ?>
@@ -22,7 +23,9 @@
     <div class="media-subscription">
       <span>Подписчики: <?php echo $subscriberCount; ?></span>
       <?php if (isset($_SESSION['user']) && $_SESSION['user']['id'] != $media['owner_id']): ?>
-        <button id="subscribe-btn" data-media-id="<?php echo htmlspecialchars($media['media_id']); ?>">Подписаться</button>
+        <button id="subscribe-btn" data-media-id="<?php echo htmlspecialchars($media['media_id']); ?>" data-subscription-id="<?php echo $subscriptionId; ?>">
+          <?php echo $isSubscribedMedia ? 'Отписаться' : 'Подписаться'; ?>
+        </button>
       <?php endif; ?>
     </div>
 

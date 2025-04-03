@@ -1,4 +1,3 @@
-<!-- app/views/user/view.php -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -7,6 +6,7 @@
   <link rel="stylesheet" href="/assets/css/style.css">
   <link rel="stylesheet" href="/assets/css/user_view.css">
   <script src="/assets/js/user/user_view.js"></script>
+  <script src="/assets/js/subscriptions/subscribe.js"></script>
 </head>
 <body>
 <?php include __DIR__ . '/../templates/header.php'; ?>
@@ -76,7 +76,10 @@
     <div class="user-info">
       <p>
         <strong>Подписчики:</strong> <?php echo (int)$subscriberCount; ?>
-        <button onclick="toggleSubscribe(<?php echo (int)$profileUserId; ?>)" id="subscribe-btn">Подписаться</button>
+        <button id="subscribe-btn" data-user-id="<?php echo htmlspecialchars($profileUserId); ?>" data-subscription-id="<?php echo $subscriptionId; ?>">
+          <?php echo $isSubscribed ? 'Отписаться' : 'Подписаться'; ?>
+        </button>
+
       </p>
 
       <p><strong>Страна:</strong> <?php echo htmlspecialchars($userProfile['country_code'] ?? ''); ?>,

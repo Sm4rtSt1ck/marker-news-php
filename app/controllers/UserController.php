@@ -24,10 +24,25 @@ if (!$userProfile) {
     die("Пользователь не найден.");
 }
 
+$isSubscribed = false;
 $isOwner = false;
+$subscriptionId = null;
 if (isset($_SESSION['user']) && $_SESSION['user']['id'] == $profileUserId) {
     $isOwner = true;
 }
+elseif (isset($_SESSION['user']) && $_SESSION['user']['id'] != $profileUserId) {
+    $stmt = $pdo->prepare("SELECT subscription_id FROM subscriptions WHERE subscriber_id = :subscriber_id AND user_id = :user_id");
+    $stmt->execute([
+        'subscriber_id' => $_SESSION['user']['id'],
+        'user_id' => $profileUserId
+    ]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    if ($row) {
+        $isSubscribed = true;
+        $subscriptionId = $row['subscription_id'];
+    }
+}
+
 
 $stmt = $pdo->prepare("SELECT COUNT(*) AS cnt FROM subscriptions WHERE user_id = :user_id");
 $stmt->execute(['user_id' => $profileUserId]);

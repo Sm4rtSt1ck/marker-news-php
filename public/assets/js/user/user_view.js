@@ -9,12 +9,3 @@ function showFullBio(event) {
     document.getElementById('bio-full').style.display = 'none';
     document.getElementById('bio-short').style.display = 'block';
   }
-
-function toggleSubscribe(profileUserId) {
-  const btn = document.getElementById('subscribe-btn');
-  if (btn.textContent === 'Подписаться') {
-    btn.textContent = 'Отписаться';
-  } else {
-    btn.textContent = 'Подписаться';
-  }
-}
