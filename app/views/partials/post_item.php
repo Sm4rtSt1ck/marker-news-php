@@ -1,4 +1,3 @@
-<!-- app/views/partials/post_item.php -->
 <div class="user-post-item">
   <h3><a href="/post/view?post_id=<?php echo htmlspecialchars($post['post_id']); ?>">
     <?php echo htmlspecialchars($post['title']); ?>
