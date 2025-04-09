@@ -21,6 +21,7 @@ return [
     '/post/create'               => '/../app/controllers/CreateController.php',
     '/post/view'                 => '/../app/controllers/PostController.php',
     '/post/interaction'          => '/../app/controllers/PostInteractionController.php',
+    '/feed'                      => '/../app/controllers/FeedController.php',
     // Reports
     '/report/create'             => '/../app/controllers/ReportController.php',
 ];
