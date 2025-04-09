@@ -17,6 +17,7 @@ return [
     '/subscriptions/unsubscribe' => '/../app/controllers/SubscriptionsUnsubscribeController.php',
     '/subscribe'                 => '/../app/controllers/SubscribeController.php',
     // Posts
+    '/news/create'               => '/../app/controllers/NewsCreateController.php',
     '/post/create'               => '/../app/controllers/CreateController.php',
     '/post/view'                 => '/../app/controllers/PostController.php',
     '/post/interaction'          => '/../app/controllers/PostInteractionController.php',
