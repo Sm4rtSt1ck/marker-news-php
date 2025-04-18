@@ -1,13 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Регистрация СМИ</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/max_length.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/media/register.css',
+  ];
+  $pageScripts = [
+    '/assets/js/max_length.js'
+  ];
+  $pageTitle = "Регистрация СМИ";
+  include __DIR__ . '/../templates/header.php';
+?>
 
   <div class="container">
     <h1>Регистрация СМИ</h1>

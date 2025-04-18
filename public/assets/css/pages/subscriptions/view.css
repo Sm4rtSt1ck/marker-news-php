@@ -1,0 +1,102 @@
+.subscriptions-page {
+  margin: calc(var(--gap-base) * 2) auto;
+  padding: 0 var(--gap-base);
+  color: var(--color-text);
+  max-width: 800px;
+  width: 100%;
+}
+
+.subscriptions-page h1 {
+  font-size: 2rem;
+  margin-bottom: var(--gap-base);
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.subscriptions-tabs {
+  display: flex;
+  justify-content: center;
+  gap: var(--gap-base);
+  margin-bottom: calc(var(--gap-base) * 2);
+}
+.subscriptions-tabs .tab-btn {
+  background: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.5em 1em;
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+.subscriptions-tabs .tab-btn.active,
+.subscriptions-tabs .tab-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.subscriptions-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-base);
+}
+
+.subscription-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-bg-muted);
+  border-radius: var(--radius-base);
+  padding: var(--gap-base);
+}
+
+.subscription-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+.subscription-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--color-bg);
+  margin-right: var(--gap-base);
+}
+.subscription-name {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.unsubscribe-btn {
+  background-color: transparent;
+  border: 2px solid var(--color-primary);
+  color: var(--color-primary);
+  padding: 0.5em 1em;
+  border-radius: var(--radius-base);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast);
+}
+.unsubscribe-btn:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+}
+
+.subscription-item.hidden {
+  display: none;
+}
+
+@media (max-width: 480px) {
+  .subscription-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .unsubscribe-btn {
+    margin-top: var(--gap-base);
+    align-self: flex-end;
+  }
+}

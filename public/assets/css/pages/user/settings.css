@@ -1,0 +1,123 @@
+.container h1 {
+    text-align: center;
+    color: var(--color-primary);
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  margin: calc(var(--gap-base) * 2) auto;
+  padding: 0 var(--gap-base);
+  color: var(--color-text);
+}
+
+.settings-section {
+  background-color: var(--color-bg-alt);
+  border: 1px solid var(--color-bg-muted);
+  border-radius: var(--radius-base);
+  padding: var(--gap-base);
+  margin-bottom: calc(var(--gap-base) * 2);
+}
+
+.settings-section h2 {
+  margin-top: 0;
+  margin-bottom: var(--gap-base);
+  font-size: 1.5rem;
+  color: var(--color-primary);
+}
+
+.error {
+  background-color: var(--color-bg-muted);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--gap-base);
+  margin-bottom: calc(var(--gap-base) * 1.5);
+  color: var(--color-text);
+}
+.error ul {
+  margin: 0;
+  padding-left: var(--gap-base);
+}
+.error li {
+  margin-bottom: calc(var(--gap-base) / 2);
+}
+
+.success {
+  background-color: var(--color-bg-alt);
+  border-left: 4px solid var(--color-primary);
+  padding: var(--gap-base);
+  margin-bottom: calc(var(--gap-base) * 1.5);
+  color: var(--color-text);
+}
+
+.settings-section > div {
+  margin-bottom: var(--gap-base);
+}
+
+.settings-section label {
+  display: block;
+  margin-bottom: calc(var(--gap-base) / 2);
+  font-weight: 500;
+  color: var(--color-text);
+}
+.settings-section input[type="text"],
+.settings-section input[type="email"],
+.settings-section input[type="password"],
+.settings-section input[type="date"],
+.settings-section select,
+.settings-section textarea {
+  width: 100%;
+}
+.settings-section input:disabled,
+.settings-section select:disabled,
+.settings-section textarea:disabled {
+  background-color: var(--color-bg-muted);
+  color: var(--color-text-muted);
+}
+
+.settings-section .avatar,
+.settings-section .cover {
+  display: block;
+  margin-bottom: var(--gap-base);
+  border-radius: var(--radius-base);
+  object-fit: cover;
+}
+.settings-section .avatar {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+.settings-section .cover {
+  width: 100%;
+  max-height: 200px;
+  border-radius: 15px;
+}
+
+.settings-section button {
+  padding: 0.5em 1em;
+  border: none;
+  border-radius: var(--radius-base);
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+.settings-section button:hover {
+  background-color: var(--color-primary-dark);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.max-length-warning {
+  color: red;
+  font-size: 0.9em;
+  margin-top: calc(var(--gap-base) / 2);
+}
+
+@media (max-width: 600px) {
+  .settings-section {
+    padding: var(--gap-base);
+  }
+}

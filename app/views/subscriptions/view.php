@@ -1,14 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Подписки</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/subscriptions.css">
-  <script src="/assets/js/subscriptions/subscriptions.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/subscriptions/view.css',
+  ];
+  $pageScripts = [
+    '/assets/js/subscriptions/subscriptions.js',
+  ];
+  $pageTitle = "Подписки";
+  include __DIR__ . '/../templates/header.php';
+?>
   <div class="container subscriptions-page">
     <h1>Подписки</h1>
 

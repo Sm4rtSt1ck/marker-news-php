@@ -1,18 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Создание новости</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <style>
-    .form-section { margin-bottom: 20px; }
-    .max-length-warning { color: red; font-size: 0.9em; margin-top: 5px; }
-    .map-container { width: 100%; height: 400px; border: 1px solid #ccc; margin-top: 10px; display: none; }
-  </style>
-  <script src="/assets/js/general/max_length.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/post/create.css',
+  ];
+  $pageScripts = [
+    '/assets/js/general/max_length.js',
+  ];
+  $pageTitle = "Создание новости";
+  include __DIR__ . '/../templates/header.php';
+?>
 
   <div class="container">
     <h1>Создание новости</h1>
@@ -35,10 +30,11 @@
         <label for="map_marker">Метка на карте:</label>
         <button type="button" id="open-map-btn">Выбрать на карте</button>
         <input type="text" id="address" name="address" placeholder="Или введите адрес новости">
-        <!-- Скрытые поля для координат -->
         <input type="hidden" id="latitude" name="latitude">
         <input type="hidden" id="longitude" name="longitude">
-        <div id="map" class="map-container"></div>
+        <div id="map" class="map-container">
+          <p style="text-align: center">Скоро здесь появится карта.</p>
+        </div>
       </div>
 
       <div class="form-section">

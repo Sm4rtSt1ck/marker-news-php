@@ -105,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
         
         $_SESSION['success'] = "Событие успешно создано.";
-        header("Location: /");
+        header("Location: /post/view?post_id=".$post_id);
         exit;
     } else {
         $error = implode("<br>", $errors);

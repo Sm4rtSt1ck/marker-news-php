@@ -1,33 +1,34 @@
-<!-- app/views/post/view.php -->
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title><?php echo htmlspecialchars($post['title']); ?></title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/post.css">
-  <script src="/assets/js/post/post.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/post/view.css',
+  ];
+  $pageScripts = [
+    '/assets/js/post/post.js',
+  ];
+  $pageTitle = $post['title'];
+  include __DIR__ . '/../templates/header.php';
+?>
   
   <div class="container post-container">
     <div class="post-author">
       <?php if ($post['user_id'] !== null):
-              if (isset($author['show_realname']) && $author['show_realname']) {
-                  $displayName = htmlspecialchars($author['first_name'] . ' ' . $author['last_name']);
-              } else {
-                  $displayName = htmlspecialchars($author['nickname']);
-              }
-            ?>
-        <img src="<?php echo htmlspecialchars($author['avatar_url'] ?? '/assets/images/default_avatar.png'); ?>" alt="Аватар" class="avatar">
-        <span class="author-name"><?php echo $displayName; ?></span>
+        $link = "/user/view?user_id=" . htmlspecialchars($post['user_id']);
+        if (isset($author['show_realname']) && $author['show_realname']) {
+            $displayName = htmlspecialchars($author['first_name'] . ' ' . $author['last_name']);
+        } else {
+            $displayName = htmlspecialchars($author['nickname']);
+        }
+      ?>
+      <img src="<?php echo htmlspecialchars($author['avatar_url'] ?? '/assets/images/default_avatar.png'); ?>" alt="Аватар" class="avatar">
       <?php elseif ($post['media_id'] !== null):
-              $displayName = htmlspecialchars($media['name']);
-            ?>
-        <img src="<?php echo htmlspecialchars($media['avatar_url'] ?? '/assets/images/default_media.png'); ?>" alt="Аватар СМИ" class="avatar">
-        <span class="author-name"><?php echo $displayName; ?></span>
+        $link = "/media/view?media_id=" . htmlspecialchars($post['media_id']);
+        $displayName = htmlspecialchars($media['name']);
+      ?>
+      <img src="<?php echo htmlspecialchars($media['avatar_url'] ?? '/assets/images/default_media.png'); ?>" alt="Аватар СМИ" class="avatar">
       <?php endif; ?>
+      <a href="<?php echo $link; ?>" class="author-link">
+        <span class="author-name"><?php echo $displayName; ?></span>
+      </a>
     </div>
 
     <h1 class="post-title"><?php echo htmlspecialchars($post['title']); ?></h1>

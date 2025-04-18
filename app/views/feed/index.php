@@ -1,14 +1,14 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Лента постов</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/feed.css">
-  <script src="/assets/js/feed.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/feed/index.css',
+    '/assets/css/partails/post_item.css'
+  ];
+  $pageScripts = [
+    '/assets/js/feed.js',
+  ];
+  $pageTitle = "Лента постов";
+  include __DIR__ . '/../templates/header.php';
+?>
   
   <div class="container feed-page">
     <h1>Лента постов</h1>
@@ -75,13 +75,13 @@
       </div>
       
       <div class="filter-group">
-        <label for="search_title">Поиск по названию:</label>
-        <input type="text" name="search_title" id="search_title" value="<?php echo htmlspecialchars($search_title); ?>">
+        <label for="search_location">Поиск по локации:</label>
+        <input type="text" name="search_location" id="search_location" value="<?php echo htmlspecialchars($search_location); ?>">
       </div>
       
       <div class="filter-group">
-        <label for="search_location">Поиск по локации:</label>
-        <input type="text" name="search_location" id="search_location" value="<?php echo htmlspecialchars($search_location); ?>">
+        <label for="search_title">Поиск по названию:</label>
+        <input type="text" name="search_title" id="search_title" value="<?php echo htmlspecialchars($search_title); ?>">
       </div>
       
       <button type="submit">Применить фильтры</button>

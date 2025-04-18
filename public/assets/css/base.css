@@ -1,0 +1,68 @@
+:root {
+    /* Primary colors */
+    --color-primary: #86C232;   
+    --color-primary-dark: #61892
+  
+    /* Background */
+    --color-bg: #222629;        
+    --color-bg-alt: #474B4F;    
+    --color-bg-alt-2: #5a5e64;  
+    --color-bg-muted: #6B6E70;  
+    
+    /* Text */
+    --color-text: #FFFFFF;      
+    --color-text-muted: #CCCCCC;
+  
+    /* Additional */
+    --radius-base: 15px;         
+    --gap-base: 16px;            
+    --transition-fast: 0.2s ease;
+}
+
+
+html {
+  font-size: 16px;
+  box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+
+*, *::before, *::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  background-color: var(--color-bg);
+  color: var(--color-text);
+  font-family: "Inter", sans-serif;
+  line-height: 1.5;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text);
+  margin-top: 0;
+}
+
+p {
+  color: var(--color-text-muted);
+  margin: 0 0 var(--gap-base);
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover {
+  color: var(--color-primary-dark);
+}

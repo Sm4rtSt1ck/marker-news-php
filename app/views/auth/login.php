@@ -1,12 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <title>Вход в систему</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+$pageStyles = [
+  '/assets/css/pages/auth/auth.css'
+];
+$pageTitle = "Вход в систему";
+include __DIR__ . '/../templates/header.php';
+?>
     <div class="login-container">
         <h2>Вход в систему</h2>
         <?php if (isset($error)): ?>

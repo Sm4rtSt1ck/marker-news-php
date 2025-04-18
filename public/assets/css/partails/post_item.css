@@ -1,0 +1,49 @@
+.user-post-item {
+    background-color: var(--color-bg-alt-2);
+    border-radius: var(--radius-base);
+    padding: var(--gap-base);
+    margin-bottom: calc(var(--gap-base) * 1.5);
+    box-shadow: 0 0px 10px rgba(0, 0, 0, 0.3);
+    color: var(--color-text);
+  }
+  
+  .user-post-item h3 {
+    margin: 0 0 calc(var(--gap-base) / 2);
+    font-size: 1.5rem;
+  }
+  
+  .user-post-item h3 a {
+    color: var(--color-primary);
+    text-decoration: none;
+    transition: color var(--transition-fast);
+  }
+  
+  .user-post-item h3 a:hover {
+    color: var(--color-primary-dark);
+  }
+  
+  .user-post-item p {
+    margin: 0 0 calc(var(--gap-base) / 1.5);
+    line-height: 1.5;
+    color: var(--color-text-muted);
+  }
+  
+  .user-post-item p strong {
+    color: var(--color-primary);
+  }
+  
+  .user-post-item p:nth-of-type(2) {
+    font-size: 0. nineem; color: var(--color-text);
+  }
+  
+  .badge {
+    display: inline-block;
+    padding: 0.2em 0.6em;
+    background-color: var(--color-primary);
+    color: var(--color-text);
+    border-radius: var(--radius-base);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-left: 0.25em;
+  }
+  

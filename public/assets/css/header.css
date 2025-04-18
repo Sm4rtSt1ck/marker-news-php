@@ -1,0 +1,53 @@
+header {
+  background-color: var(--color-bg-alt);
+  padding: var(--gap-base) 0;
+}
+
+header .header-container {
+  position: relative;
+}
+
+header .header-container nav {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+
+header .header-container h1 {
+  margin: 0;
+  margin-left: 1%;
+  flex: 0 0 auto;
+}
+
+header .header-container nav {
+  margin: 0 auto !important;
+}
+
+header nav ul {
+  list-style: none;
+  display: flex;
+  gap: var(--gap-base);
+  margin: 0;
+  padding: 0;
+}
+
+header nav a {
+  display: inline-block;
+  padding: 0.5em 1em;
+  border: 2px solid var(--color-primary);
+  border-radius: var(--radius-base);
+  background-color: transparent;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: background-color var(--transition-fast),
+              color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+header nav a:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text);
+  border-color: var(--color-primary-dark);
+}

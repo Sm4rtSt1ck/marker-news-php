@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 'nickname'   => $user['nickname']
             ];
 
-            header("Location: /");
+            header("Location: /feed");
             exit;
         } else {
             $error = "Неверные учетные данные.";

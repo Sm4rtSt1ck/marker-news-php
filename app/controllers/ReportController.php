@@ -53,6 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $col = $stmt->fetch(PDO::FETCH_ASSOC);
     if ($col) {
         $enumStr = substr($col['Type'], 5, -1);
+        $enumStr = trim($enumStr, "'");
         $validCategories = explode("','", $enumStr);
         if (!in_array($category, $validCategories)) {
             $errors[] = "Неверная категория жалобы.";
@@ -80,12 +81,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     $stmt = $pdo->query("SHOW COLUMNS FROM reports LIKE 'category'");
     $col = $stmt->fetch(PDO::FETCH_ASSOC);
+    
     if ($col) {
         $enumStr = substr($col['Type'], 5, -1);
+        $enumStr = trim($enumStr, "'");
         $categories = explode("','", $enumStr);
     } else {
         $categories = [];
     }
+    
     include __DIR__ . '/../views/report/create.php';
     exit;
 }

@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Страница пользователя</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/user_view.css">
-  <script src="/assets/js/user/user_view.js"></script>
-  <script src="/assets/js/subscriptions/subscribe.js"></script>
-</head>
-<body>
-<?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+$pageStyles = [
+  '/assets/css/partails/post_item.css',
+  '/assets/css/pages/user/view.css',
+];
+$pageScripts = [
+  '/assets/js/user/user_view.js',
+  '/assets/js/subscriptions/subscribe.js'
+];
+$pageTitle = "Страница пользователя";
+include __DIR__ . '/../templates/header.php';
+?>
 
 <div class="user-page-container">
 
@@ -57,6 +57,7 @@
       <?php endif; ?>
 
       <p><a href="/settings" class="btn-settings">Перейти в настройки профиля</a></p>
+      <p><a href="/media/register" class="btn-settings">Зарегистрировать СМИ</a></p>
 
       <p><strong>Подписчики:</strong> <?php echo (int)$subscriberCount; ?></p>
 

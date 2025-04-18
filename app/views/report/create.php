@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>Оставить жалобу на пост</title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <script src="/assets/js/general/max_length.js"></script>
-  <style>
-    .form-section { margin-bottom: 20px; }
-    .max-length-warning { color: red; font-size: 0.9em; margin-top: 5px; }
-  </style>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/pages/report/create.css',
+  ];
+  $pageScripts = [
+    '/assets/js/general/max_length.js',
+  ];
+  $pageTitle = "Жалоба на пост";
+  include __DIR__ . '/../templates/header.php';
+?>
   
   <div class="container">
     <h1>Оставить жалобу на пост</h1>
@@ -28,7 +24,7 @@
           unset($_SESSION['success']);
       }
     ?>
-    <form action="/report/create" method="POST">
+    <form action="/report/create?post_id=<?php echo htmlspecialchars($post_id); ?>" method="POST">
       <input type="hidden" name="post_id" value="<?php echo htmlspecialchars($post_id); ?>">
       
       <div class="form-section">

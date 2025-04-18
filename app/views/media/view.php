@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title><?php echo htmlspecialchars($media['name']); ?></title>
-  <link rel="stylesheet" href="/assets/css/style.css">
-  <link rel="stylesheet" href="/assets/css/media_view.css">
-  <script src="/assets/js/media/view.js"></script>
-  <script src="/assets/js/subscriptions/subscribe.js"></script>
-</head>
-<body>
-  <?php include __DIR__ . '/../templates/header.php'; ?>
+<?php
+  $pageStyles = [
+    '/assets/css/partails/post_item.css',
+    '/assets/css/pages/media/view.css',
+  ];
+  $pageScripts = [
+    '/assets/js/media/view.js',
+    '/assets/js/subscriptions/subscribe.js'
+  ];
+  $pageTitle = $media['name'];
+  include __DIR__ . '/../templates/header.php';
+?>
 
   <div class="container media-page">
     <div class="media-cover">
@@ -52,6 +52,7 @@
     <?php if ($isOwnerOrModerator): ?>
       <div class="media-settings-link">
         <a href="/media/settings?media_id=<?php echo htmlspecialchars($media['media_id']); ?>">Настройки СМИ</a>
+        <a href="/news/create?media_id=<?php echo htmlspecialchars($media['media_id']); ?>">Создать новость</a>
       </div>
     <?php endif; ?>
 
