@@ -71,7 +71,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     $tmpName = $_FILES['attachments']['tmp_name'][$i];
                     $originalName = basename($_FILES['attachments']['name'][$i]);
                     $uniqueName = uniqid('attachment_') . "_" . $originalName;
-                    $uploadDir = __DIR__ . '/../../public/uploads/';
+                    $uploadDir = __DIR__ . '/../../../public/uploads/';
                     $targetPath = $uploadDir . $uniqueName;
                     
                     if (move_uploaded_file($tmpName, $targetPath)) {

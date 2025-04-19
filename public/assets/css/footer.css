@@ -1,11 +1,13 @@
 .footer {
-    background-color: var(--color-bg-alt);
-    color: var(--color-text-muted);
-    padding: calc(var(--gap-base) * 2) 0;
-    font-size: 0.9rem;
-    line-height: 1.4;
-    padding-left: 10%;
-    padding-right: 10%;
+  background-color: var(--color-bg-alt);
+  color: var(--color-text-muted);
+  padding: calc(var(--gap-base) * 2) 0;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  padding-left: 10%;
+  padding-right: 10%;
+  margin-bottom: 0;
+  margin-top: auto;
 }
 
 .footer__grid {
