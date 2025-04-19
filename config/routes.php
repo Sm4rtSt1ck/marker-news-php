@@ -2,26 +2,28 @@
 return [
     '/'                          => '/../app/views/home.php',
     // Auth
-    '/login'                     => '/../app/controllers/AuthController.php',
-    '/register'                  => '/../app/controllers/RegisterController.php',
-    '/logout'                    => '/../app/controllers/LogoutController.php',
+    '/register'                  => '/../app/controllers/auth/RegisterController.php',
+    '/login'                     => '/../app/controllers/auth/LoginController.php',
+    '/logout'                    => '/../app/controllers/auth/LogoutController.php',
     // User
-    '/settings'                  => '/../app/controllers/SettingsController.php',
-    '/user/view'                 => '/../app/controllers/UserController.php',
-    '/profile'                   => '/../app/controllers/ProfileController.php',
+    '/user/view'                 => '/../app/controllers/user/UserController.php',
+    '/profile'                   => '/../app/controllers/user/ProfileController.php',
+    '/settings'                  => '/../app/controllers/user/SettingsController.php',
     # Media
-    '/media/register'            => '/../app/controllers/MediaRegisterController.php',
-    '/media/view'                => '/../app/controllers/MediaController.php',
+    '/media/register'            => '/../app/controllers/media/MediaRegisterController.php',
+    '/media/view'                => '/../app/controllers/media/MediaController.php',
     // Subscriptions
-    '/subscriptions'             => '/../app/controllers/SubscriptionsController.php',
-    '/subscriptions/unsubscribe' => '/../app/controllers/SubscriptionsUnsubscribeController.php',
-    '/subscribe'                 => '/../app/controllers/SubscribeController.php',
+    '/subscriptions'             => '/../app/controllers/subscriptions/SubscriptionsController.php',
+    '/subscriptions/unsubscribe' => '/../app/controllers/subscriptions/SubscriptionsUnsubscribeController.php',
+    '/subscribe'                 => '/../app/controllers/subscriptions/SubscribeController.php',
     // Posts
-    '/news/create'               => '/../app/controllers/NewsCreateController.php',
-    '/event/create'               => '/../app/controllers/CreateController.php',
-    '/post/view'                 => '/../app/controllers/PostController.php',
-    '/post/interaction'          => '/../app/controllers/PostInteractionController.php',
-    '/feed'                      => '/../app/controllers/FeedController.php',
+    '/news/create'               => '/../app/controllers/post/NewsCreateController.php',
+    '/event/create'              => '/../app/controllers/post/EventCreateController.php',
+    '/post/view'                 => '/../app/controllers/post/PostController.php',
+    '/post/interaction'          => '/../app/controllers/post/PostInteractionController.php',
+    '/feed'                      => '/../app/controllers/post/FeedController.php',
     // Reports
-    '/report/create'             => '/../app/controllers/ReportController.php',
+    '/report/create'             => '/../app/controllers/report/ReportController.php',
+    // Admin
+    // '/admin'                     => '/../app/controllers/admin/AdminController.php',
 ];

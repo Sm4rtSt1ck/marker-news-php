@@ -10,7 +10,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 $subscription_id = $_POST['subscription_id'] ?? '';
 

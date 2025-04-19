@@ -9,9 +9,26 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 $errors = [];
+
+if (!isset($_GET['media_id']) || !is_numeric($_GET['media_id'])) {
+    die("Ошибка: не указан идентификатор СМИ.");
+}
+
+$media_id = (int)$_GET['media_id'];
+
+$stmt = $pdo->prepare("SELECT * FROM media_outlets WHERE media_id = :media_id AND owner_id = :owner_id LIMIT 1");
+$stmt->execute([
+    'media_id'  => $media_id,
+    'owner_id'  => $_SESSION['user']['id']
+]);
+$media = $stmt->fetch(PDO::FETCH_ASSOC);
+
+if (!$media) {
+    die("Ошибка: вы не являетесь владельцем данного СМИ или СМИ не существует.");
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = trim($_POST['title'] ?? '');
@@ -29,25 +46,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
     if (empty($description)) {
         $errors[] = "Описание обязательно.";
-    } elseif (mb_strlen($description) > 10000) {
-        $errors[] = "Описание не должно превышать 10000 символов.";
+    } elseif (mb_strlen($description) > 30000) {
+        $errors[] = "Описание не должно превышать 30000 символов.";
     }
-    
+
     $allowedCategories = ['good', 'bad', 'neutral', 'funny', 'sad', 'strange'];
     if (empty($category) || !in_array($category, $allowedCategories)) {
-        $errors[] = "Выберите корректный характер события.";
+        $errors[] = "Выберите корректный характер новости.";
     }
-    
+
     if ($latitude === '' || $longitude === '') {
         $latitude = null;
         $longitude = null;
     }
-    
+
     $attachments = [];
     if (isset($_FILES['attachments']) && $_FILES['attachments']['error'][0] != UPLOAD_ERR_NO_FILE) {
         $fileCount = count($_FILES['attachments']['name']);
-        if ($fileCount > 10) {
-            $errors[] = "Максимальное количество вложений: 10.";
+        if ($fileCount > 20) {
+            $errors[] = "Максимальное количество вложений: 20.";
         } else {
             for ($i = 0; $i < $fileCount; $i++) {
                 if ($_FILES['attachments']['error'][$i] === UPLOAD_ERR_OK) {
@@ -82,34 +99,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
     
     if (empty($errors)) {
-        $stmt = $pdo->prepare("INSERT INTO posts (user_id, title, description, category, latitude, longitude) VALUES (:user_id, :title, :description, :category, :latitude, :longitude)");
+        $stmt = $pdo->prepare("INSERT INTO posts (media_id, title, description, category, latitude, longitude) VALUES (:media_id, :title, :description, :category, :latitude, :longitude)");
         $stmt->execute([
-            'user_id' => $_SESSION['user']['id'],
-            'title' => $title,
+            'media_id'    => $media_id,
+            'title'       => $title,
             'description' => $description,
-            'category' => $category,
-            'latitude' => $latitude,
-            'longitude' => $longitude
+            'category'    => $category,
+            'latitude'    => $latitude,
+            'longitude'   => $longitude
         ]);
         $post_id = $pdo->lastInsertId();
-        
+
         if (!empty($attachments)) {
             $stmtAttachment = $pdo->prepare("INSERT INTO attachments (post_id, file_url, file_type) VALUES (:post_id, :file_url, :file_type)");
             foreach ($attachments as $att) {
                 $stmtAttachment->execute([
-                    'post_id' => $post_id,
-                    'file_url' => $att['file_url'],
+                    'post_id'   => $post_id,
+                    'file_url'  => $att['file_url'],
                     'file_type' => $att['file_type']
                 ]);
             }
         }
         
-        $_SESSION['success'] = "Событие успешно создано.";
-        header("Location: /post/view?post_id=".$post_id);
+        $_SESSION['success'] = "Новость успешно создана.";
+        header("Location: /media/view?media_id=" . $media_id);
         exit;
     } else {
         $error = implode("<br>", $errors);
     }
 }
 
-include __DIR__ . '/../views/event/create.php';
+include __DIR__ . '/../../views/news/create.php';

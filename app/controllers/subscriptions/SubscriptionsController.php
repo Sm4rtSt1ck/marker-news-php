@@ -8,7 +8,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 $subscriber_id = $_SESSION['user']['id'];
 
@@ -26,4 +26,4 @@ $stmt = $pdo->prepare("
 $stmt->execute(['subscriber_id' => $subscriber_id]);
 $subscriptions = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include __DIR__ . '/../views/subscriptions/view.php';
+include __DIR__ . '/../../views/subscriptions/view.php';

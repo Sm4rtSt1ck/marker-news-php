@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 if (!isset($_GET['media_id']) || !is_numeric($_GET['media_id'])) {
     die("Неверный идентификатор СМИ.");
@@ -100,4 +100,4 @@ $stmt = $pdo->prepare("SELECT * FROM posts WHERE media_id = :media_id ORDER BY c
 $stmt->execute(['media_id' => $media_id]);
 $newsPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include __DIR__ . '/../views/media/view.php';
+include __DIR__ . '/../../views/media/view.php';

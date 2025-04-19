@@ -7,7 +7,7 @@ if (!isset($_SESSION['user'])) {
     exit;
 }
 
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 $user_id = $_SESSION['user']['id'];
 $errors = [];
@@ -181,4 +181,4 @@ $user = $stmt->fetch(PDO::FETCH_ASSOC);
 $countriesStmt = $pdo->query("SELECT country_code, country_name FROM countries ORDER BY country_name ASC");
 $countries = $countriesStmt->fetchAll(PDO::FETCH_ASSOC);
 
-include __DIR__ . '/../views/user/settings.php';
+include __DIR__ . '/../../views/user/settings.php';

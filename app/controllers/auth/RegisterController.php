@@ -8,7 +8,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
 
 
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     
@@ -17,7 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'GET') {
     $countries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     
-    include __DIR__ . '/../views/auth/register.php';
+    include __DIR__ . '/../../views/auth/register.php';
     exit;
 }
 
@@ -62,7 +62,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (count($errors) > 0) {
         $stmt = $pdo->query("SELECT country_code, country_name FROM countries ORDER BY country_name ASC");
         $countries = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        include __DIR__ . '/../views/auth/register.php';
+        include __DIR__ . '/../../views/auth/register.php';
         exit;
     }
 
@@ -92,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (count($errors) > 0) {
         $stmt = $pdo->query("SELECT country_code, country_name FROM countries ORDER BY country_name ASC");
         $countries = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        include __DIR__ . '/../views/auth/register.php';
+        include __DIR__ . '/../../views/auth/register.php';
         exit;
     }
 
@@ -120,7 +120,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $errors[] = "Ошибка регистрации: " . $e->getMessage();
         $stmt = $pdo->query("SELECT country_code, country_name FROM countries ORDER BY country_name ASC");
         $countries = $stmt->fetchAll(PDO::FETCH_ASSOC);
-        include __DIR__ . '/../views/auth/register.php';
+        include __DIR__ . '/../../views/auth/register.php';
         exit;
     }
 

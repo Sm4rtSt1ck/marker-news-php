@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -34,4 +34,4 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
-include __DIR__ . '/../views/auth/login.php';
+include __DIR__ . '/../../views/auth/login.php';

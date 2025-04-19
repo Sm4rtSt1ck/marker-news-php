@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 $type = $_GET['type'] ?? 'all';
 $country = $_GET['country'] ?? '';
@@ -87,4 +87,4 @@ $posts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 $stmt = $pdo->query("SELECT country_code, country_name FROM countries ORDER BY country_name ASC");
 $countries = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include __DIR__ . '/../views/feed/index.php';
+include __DIR__ . '/../../views/feed/index.php';

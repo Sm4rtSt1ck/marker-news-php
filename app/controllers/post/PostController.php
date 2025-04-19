@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 if (!isset($_GET['post_id']) || !is_numeric($_GET['post_id'])) {
     echo "Неверный идентификатор поста.";
@@ -92,4 +92,4 @@ if ($totalCount > 0) {
 } else {
     $reaction_color = "#cccccc"; }
 
-include __DIR__ . '/../views/post/view.php';
+include __DIR__ . '/../../views/post/view.php';

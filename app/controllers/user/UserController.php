@@ -3,7 +3,7 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once __DIR__ . '/../helpers/db.php';
+require_once __DIR__ . '/../../helpers/db.php';
 
 if (!isset($_GET['user_id']) || !is_numeric($_GET['user_id'])) {
     die("Неверный идентификатор пользователя.");
@@ -101,4 +101,4 @@ $stmt = $pdo->prepare("
 $stmt->execute(['user_id' => $profileUserId]);
 $userPosts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-include __DIR__ . '/../views/user/view.php';
+include __DIR__ . '/../../views/user/view.php';

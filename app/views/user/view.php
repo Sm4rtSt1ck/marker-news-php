@@ -1,11 +1,11 @@
 <?php
 $pageStyles = [
-  '/assets/css/partails/post_item.css',
-  '/assets/css/pages/user/view.css',
+  '/../assets/css/partails/post_item.css',
+  '/../assets/css/pages/user/view.css',
 ];
 $pageScripts = [
-  '/assets/js/user/user_view.js',
-  '/assets/js/subscriptions/subscribe.js'
+  '/../assets/js/user/user_view.js',
+  '/../assets/js/subscriptions/subscribe.js'
 ];
 $pageTitle = "Страница пользователя";
 include __DIR__ . '/../templates/header.php';
